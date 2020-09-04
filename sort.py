@@ -14,10 +14,30 @@ def merge(A,left,mid,right):
     l = mid
     i_e = mid-1
     l_e = right
-    if A[i] > A[l]
+    B = []
+    while i <= i_e and 
+    if A[i] > A[l]:
+        B += A[l]
+        l += 1
+    elif A[l] > A[i]:
+        B += A[i]
+        i += 1
+
 
 def merge_sort(A,left,right):
-    pass
+    #mid is right list start point
+    if left+1 == right or left == right:
+        if A[left] > A[right]:
+            A[left],A[right] = A[right],A[left]
+            return A
+        else:
+            return A
+    else:
+        mid = (left+right)//2
+        merge_sort(A,left,mid-1)
+        merge_sort(A,mid,right)
+        merge(A,left,mid,right)
+        return A
 
 print(rand)
 merge_sort(rand,0,len(rand)-1)
