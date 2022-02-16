@@ -20,23 +20,16 @@ def m(t_l, l, mid, r):
     if r_s == r_e:
         m_l.extend(t_l[l_s:l_e])
     t_l[l:r] = m_l
-def m_s(t_l, l=0, r=None):
+def ms(t_l, l=0, r=None):
     if r is None: r = len(t_l) - 1
     if l == r or r - l == 1:
         if  t_l[l] > t_l[r]:
             return s(t=t_l, l=l, r=r)
     else:
         mid = (l + r) // 2
-        m_s(t_l=t_l, l=l, r=mid)
-        m_s(t_l=t_l, l=mid, r=r)
+        ms(t_l=t_l, l=l, r=mid)
+        ms(t_l=t_l, l=mid, r=r)
         m(t_l=t_l, l=l, mid=mid, r=r)
 if __name__ == '__main__':
-    import random
-    rand = list(range(1, 1000001))
-    before_rand = rand[:]
-    print(rand)
-    random.shuffle(rand)
-    print(rand)
-    m_s(rand)
-    print(rand)
-    print(before_rand == rand)
+    from tester import tester
+    tester(ms)
